@@ -1,0 +1,33 @@
+#page td {
+    padding:0; margin:0;
+ }
+ #page {
+    border-collapse: collapse;
+ }
+ html, body, #page {
+    height:100%;
+    width:100%;
+    margin:0;
+    padding:0;
+}
+body {
+    background-color: black;
+    padding:0px;
+}
+#game-shrinker{
+    width:50%;
+    margin-left:auto;
+    margin-right:auto;
+    padding:0px;
+    border: none !important;
+}
+#game-frame{
+    width:100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding:0px;
+    vertical-align: middle;
+    border-style:dashed;
+    border-color:#ffffff11;
+    border-width:3px;
+}
