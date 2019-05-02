@@ -53,7 +53,7 @@ window.onload = function(){
 
   var music = PIXI.sound.Sound.from({
     url: 'sounds/untitled.wav',
-    volume:0.01
+    volume:0.002
   });
   music.play();
 
@@ -66,8 +66,8 @@ window.onload = function(){
   explorer.behaviors.push(new Reflection(explorer));
 
 
-  var xs = [49,122,22,40,50];
-  var ys = [15,252,14,155,25];
+  var xs = [49,122,125,40,190];
+  var ys = [15,252,125,155,25];
   var trees = sheetToSprites("images/trees.png",64,64,5,1);
   for(var i = 0; i < xs.length; i++){
     var tree = new Entity("tree");
@@ -101,7 +101,15 @@ function UPDATE(){
   for(var i = 0; i < entities.length; i++){
     entities[i].Update();
   }
+  foreground.updateLayersOrder();
 }
+foreground.updateLayersOrder = function () {
+  foreground.children.sort(function(a,b) {
+      a.z = a.z || 0;
+      b.z = b.z || 0;
+      return b.z - a.z;
+  });
+};
 
 var entities = [];
 function Entity(name){
@@ -110,7 +118,7 @@ function Entity(name){
   this.sprite.anchor.set(0.5,1);
   foreground.addChild(this.sprite);
 
-  
+  this.sprite.z = 0;
 
   this.behaviors = [];
 
@@ -125,6 +133,7 @@ function Entity(name){
     }
 
     this.sprite.position.set(Math.round(this.position.x),Math.round(this.position.y));
+    this.sprite.z = -this.sprite.position.y;
   }
 
   entities.push(this);
@@ -134,13 +143,15 @@ function Reflection(parent){
   this.reflection = new PIXI.Sprite(null);
   this.reflection.anchor.set(0.5,1);
   this.reflection.scale.y *= -1;
-  this.reflection.alpha = 0.25;
-  reflections.addChild(this.reflection);
+  this.reflection.tint = 0x999999;
+  this.reflection.z = 0;
+  foreground.addChild(this.reflection);
   
   this.Update = function(){
     this.reflection.position = parent.sprite.position;
     this.reflection.texture = parent.sprite.texture;
     this.reflection.scale.x = parent.sprite.scale.x;
+    this.reflection.z = -parent.sprite.position.y;
   }
 
 }
