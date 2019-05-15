@@ -4,6 +4,15 @@
  #page {
     border-collapse: collapse;
  }
+ body{
+     background: url("images/dc-bg.png");
+     background-repeat: no-repeat;
+     background-size: auto;
+ }
+ a{
+     color:white;
+     text-decoration: none;
+ }
  /*html, body, #page {
     height:100%;
     width:100%;
@@ -27,8 +36,24 @@ body {
     padding:0;
     margin-top:0;
 }
+#text-body{
+    margin-left:auto;
+    margin-right:auto;
+    color:white;
+    text-align: center;
+    font-family:"2Credits",Arial,sans-serif;
+    padding:0;
+    margin-top:0;
+    width:20%;
+}
 #center-logo-container{
     width:20%;
+    padding:0;
+    margin:10% auto;
+    margin-bottom:15px;
+}
+#center-logo-container-small{
+    width:10%;
     padding:0;
     margin:10% auto;
     margin-bottom:15px;
