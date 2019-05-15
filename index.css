@@ -4,15 +4,34 @@
  #page {
     border-collapse: collapse;
  }
- html, body, #page {
+ /*html, body, #page {
     height:100%;
     width:100%;
     margin:0;
     padding:0;
+}*/
+@font-face {
+    font-family:"2Credits";
+    src: url("fonts/2Credits.ttf");
 }
 body {
     background-color: black;
     padding:0px;
+}
+#special-links{
+    margin-left:auto;
+    margin-right:auto;
+    color:white;
+    text-align: center;
+    font-family:"2Credits",Arial,sans-serif;
+    padding:0;
+    margin-top:0;
+}
+#center-logo-container{
+    width:20%;
+    padding:0;
+    margin:10% auto;
+    margin-bottom:15px;
 }
 #game-shrinker{
     width:50%;
