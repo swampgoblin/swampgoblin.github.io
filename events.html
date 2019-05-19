@@ -1,4 +1,11 @@
 <html>
+<!--AIzaSyBH-wNARAPPDU_Uc79a5eh9V2re-dv5HZY
+  calendar id
+NnFxdmxjbnRidnBvNDY4ZTRxN3RkZG50ZmdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ
+https://www.googleapis.com/calendar/v3/calendars/NnFxdmxjbnRidnBvNDY4ZTRxN3RkZG50ZmdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ/events?key=AIzaSyAhpwpmdv6EaxezbGfiBerSOo_MW-VMc8w
+
+https://www.googleapis.com/calendar/v3/calendars/NnFxdmxjbnRidnBvNDY4ZTRxN3RkZG50ZmdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ/events
+-->
 <head>
   <link rel="stylesheet" href="index.css">
   <meta charset="utf-8">
@@ -14,10 +21,75 @@
   <div id="center-logo-container-small">
     <a href="index.html"><img src="images/swampgoblin_logo_00.png" width=100%></a>
   </div>
-  <div id="text-body">
-    CALENDAR
-    <br><br>
-    MSB NEEDS TO DO SOME FANCY BS HERE TO READ OFF THE GOOGLE CALENDAR
+  <div id="calendar-body">
   </div>
+  <script>
+    const Http = new XMLHttpRequest();
+    const url='https://www.googleapis.com/calendar/v3/calendars/6qqvlcntbvpo468e4q7tddntfg@group.calendar.google.com/events?key=AIzaSyBH-wNARAPPDU_Uc79a5eh9V2re-dv5HZY&singleEvents=true&orderBy=starttime';
+    Http.open("GET", url);
+    Http.send();
+    var done = false;
+    Http.onreadystatechange=(e)=>{
+      if (Http.readyState == 4 && Http.status == 200) {
+        
+      }
+      else{
+        return;
+      }
+      //console.log(Http.responseText);
+      if(done)
+        return;
+      done = true;
+      var body = JSON.parse(Http.responseText);
+      var items = body.items;
+      
+      //console.log(items.length);
+      for(var i = 0; i < items.length; i++){
+        var item = items[i];
+        if(!item["start"]) continue;
+        var datetime = item.start.dateTime;
+        if(!item.start["dateTime"])
+          datetime = item.start.date;
+
+        var summ = item.summary;
+        if(summ.includes("///")){
+          summ = summ.replace("///","");
+          summ="<h3 style='color:yellow;'>"+summ+"</h3>";
+        }
+        else
+          summ = "<h3>"+summ+"</h3>";
+
+        var location = item.location;
+        location = location.replace(/,/g,"<br>");
+        console.log(datetime);
+        
+        var d = Date.parse(datetime);
+        var dd = new Date();
+        dd.setTime(d);
+        var ds = formatDate(dd);
+        ds = "<h4>"+ds+"</h4>";
+        document.getElementById('calendar-body').innerHTML += "<br>"+summ+ds+"<br>"+location+"<br><br>";
+      }
+    }
+
+    function formatDate(date) {
+      var monthNames = [
+        "January", "February", "March",
+        "April", "May", "June", "July",
+        "August", "September", "October",
+        "November", "December"
+      ];
+      var dayNames = [
+        "Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"
+      ];
+
+      var dweek = date.getDay();
+      var day = date.getDate();
+      var monthIndex = date.getMonth();
+      var year = date.getFullYear();
+
+      return dayNames[dweek]+' '+monthNames[monthIndex]+' '+day + ' ' + year;
+    }
+  </script>
 </body>
 </html>
