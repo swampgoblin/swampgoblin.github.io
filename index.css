@@ -7,7 +7,7 @@
  body{
      background: url("images/dc-bg.png");
      background-repeat: no-repeat;
-     background-size: auto;
+     background-size: cover;
  }
  a{
      color:white;
@@ -47,13 +47,13 @@ body {
     width:20%;
 }
 #center-logo-container{
-    width:20%;
+    width:20vmax;
     padding:0;
-    margin:10% auto;
+    margin:10vmax auto;
     margin-bottom:15px;
 }
 #center-logo-container-small{
-    width:10%;
+    width:10vmax;
     padding:0;
     margin:10% auto;
     margin-bottom:15px;
