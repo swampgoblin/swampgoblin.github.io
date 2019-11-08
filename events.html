@@ -62,13 +62,14 @@ https://www.googleapis.com/calendar/v3/calendars/NnFxdmxjbnRidnBvNDY4ZTRxN3RkZG5
       for(var i = 0; i < nitems.length; i++){
         var ni = nitems[i];
         if(ni["start"] && ni.start.datetime){
+          Date d = Date.parse(ni.start.datetime);
           if(l_future){
             l_future = false;
-            if(ni.start.datetime > date)
+            if(d > date)
               items.push({lllabel:"Future Events"});
           }
           if(l_past){
-            if(ni.start.datetime < date){
+            if(d < date){
               l_past = false;
               items.push({lllabel:"Past Events"});
             }
