@@ -117,6 +117,8 @@ https://www.googleapis.com/calendar/v3/calendars/NnFxdmxjbnRidnBvNDY4ZTRxN3RkZG5
           summ = "<h3>"+summ+"</h3>";
 
         var location = item.location;
+        if(!location)
+          location = "";
         location = location.replace(/,/g,"<br>");
         console.log(datetime);
         
