@@ -73,9 +73,12 @@ https://www.googleapis.com/calendar/v3/calendars/NnFxdmxjbnRidnBvNDY4ZTRxN3RkZG5
           console.log(dd);
           if(l_future){
             l_future = false;
-            b = true;
-            if(dd > date)
+            
+            if(dd > date){
               items.push({lllabel:"Future Events"});
+              b = true;
+            }
+              
           }
           if(l_past){
             if(dd < date){
@@ -85,7 +88,7 @@ https://www.googleapis.com/calendar/v3/calendars/NnFxdmxjbnRidnBvNDY4ZTRxN3RkZG5
           }
         }
         if(l_future || b){
-          items.splice(0,0,ni);
+          items.splice(1,0,ni);
         }
         else{
           items.push(ni);
