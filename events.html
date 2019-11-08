@@ -53,11 +53,37 @@ https://www.googleapis.com/calendar/v3/calendars/NnFxdmxjbnRidnBvNDY4ZTRxN3RkZG5
         return;
       done = true;
       var body = JSON.parse(Http.responseText);
-      var items = body.items;
+      var nitems = body.items;
+      nitems = nitems.reverse();
+      var date = new Date();
+      var items = [];
+      var l_future = true;
+      var l_past = true;
+      for(var i = 0; i < nitems.length; i++){
+        var ni = nitems[i];
+        if(ni["start"] && ni.start.datetime){
+          if(l_future){
+            l_future = false;
+            if(ni.start.datetime > date)
+              items.push({lllabel:"Future Events"});
+          }
+          if(l_past){
+            if(ni.start.datetime < date){
+              l_past = false;
+              items.push({lllabel:"Past Events"});
+            }
+          }
+        }
+        items.push(ni);
+      }
       
       //console.log(items.length);
       for(var i = 0; i < items.length; i++){
         var item = items[i];
+        if(item["lllabel"]){
+          document.getElementById('calendar-body').innerHTML += "<br><h2>"+item.lllabel+"</h2><br><br>";
+          continue;
+        }
         if(!item["start"]) continue;
         var datetime = item.start.dateTime;
         if(!item.start["dateTime"])
