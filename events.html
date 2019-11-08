@@ -67,11 +67,13 @@ https://www.googleapis.com/calendar/v3/calendars/NnFxdmxjbnRidnBvNDY4ZTRxN3RkZG5
         if(!ni.start["dateTime"])
           datetime = ni.start.date;
         console.log(JSON.stringify(ni));
+        var b = false;
         if(ni["start"]){
           var dd = Date.parse(datetime);
           console.log(dd);
           if(l_future){
             l_future = false;
+            b = true;
             if(dd > date)
               items.push({lllabel:"Future Events"});
           }
@@ -82,7 +84,12 @@ https://www.googleapis.com/calendar/v3/calendars/NnFxdmxjbnRidnBvNDY4ZTRxN3RkZG5
             }
           }
         }
-        items.push(ni);
+        if(l_future || b){
+          items.splice(0,0,ni);
+        }
+        else{
+          items.push(ni);
+        }
       }
       
       //console.log(items.length);
