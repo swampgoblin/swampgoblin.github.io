@@ -68,6 +68,12 @@ h4{
     text-align:right;
     color:#ffffffaa;
 }
+#game-labels-body{
+    width:30%;
+    text-align:right;
+    color:#ffffffaa;
+    box-shadow: 7px 7px 5px black;
+}
 #center-logo-container{
     width:20vmax;
     padding:0;

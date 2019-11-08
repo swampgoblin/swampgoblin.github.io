@@ -68,26 +68,24 @@ https://www.googleapis.com/calendar/v3/calendars/NnFxdmxjbnRidnBvNDY4ZTRxN3RkZG5
           datetime = ni.start.date;
         console.log(JSON.stringify(ni));
         var b = false;
-        if(ni["start"]){
-          var dd = Date.parse(datetime);
-          console.log(dd);
-          if(l_future){
-            l_future = false;
-            
-            if(dd > date){
-              items.push({lllabel:"Future Events"});
-              b = true;
-            }
-              
+        var dd = Date.parse(datetime);
+        console.log(dd);
+        if(l_future){
+          l_future = false;
+          
+          if(dd > date){
+            items.push({lllabel:"Future Events"});
+            b = true;
           }
-          if(l_past){
-            if(dd < date){
-              l_past = false;
-              items.push({lllabel:"Past Events"});
-            }
+            
+        }
+        if(l_past){
+          if(dd < date){
+            l_past = false;
+            items.push({lllabel:"Past Events"});
           }
         }
-        if(l_future || b){
+        if(l_past){
           items.splice(1,0,ni);
         }
         else{
