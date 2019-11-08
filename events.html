@@ -61,8 +61,13 @@ https://www.googleapis.com/calendar/v3/calendars/NnFxdmxjbnRidnBvNDY4ZTRxN3RkZG5
       var l_past = true;
       for(var i = 0; i < nitems.length; i++){
         var ni = nitems[i];
-        if(ni["start"] && ni.start.datetime){
-          var dd = Date.parse(ni.start.datetime);
+        if(!ni["start"]) continue;
+        var datetime = item.start.dateTime;
+        if(!item.start["dateTime"])
+          datetime = item.start.date;
+
+        if(ni["start"]){
+          var dd = Date.parse(datetime);
           console.log(dd);
           if(l_future){
             l_future = false;
