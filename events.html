@@ -80,7 +80,8 @@ https://www.googleapis.com/calendar/v3/calendars/NnFxdmxjbnRidnBvNDY4ZTRxN3RkZG5
       //console.log(items.length);
       for(var i = 0; i < items.length; i++){
         var item = items[i];
-        if(item["lllabel"]){
+        if(item.lllabel){
+          console.log("LABEL");
           document.getElementById('calendar-body').innerHTML += "<br><h2>"+item.lllabel+"</h2><br><br>";
           continue;
         }
