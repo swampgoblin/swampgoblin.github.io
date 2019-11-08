@@ -62,7 +62,8 @@ https://www.googleapis.com/calendar/v3/calendars/NnFxdmxjbnRidnBvNDY4ZTRxN3RkZG5
       for(var i = 0; i < nitems.length; i++){
         var ni = nitems[i];
         if(ni["start"] && ni.start.datetime){
-          Date d = Date.parse(ni.start.datetime);
+          var d = Date.parse(ni.start.datetime);
+          console.log(d);
           if(l_future){
             l_future = false;
             if(d > date)
