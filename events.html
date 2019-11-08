@@ -63,9 +63,9 @@ https://www.googleapis.com/calendar/v3/calendars/NnFxdmxjbnRidnBvNDY4ZTRxN3RkZG5
         var ni = nitems[i];
         if(!ni) continue;
         if(!ni["start"]) continue;
-        var datetime = item.start.dateTime;
-        if(!item.start["dateTime"])
-          datetime = item.start.date;
+        var datetime = ni.start.dateTime;
+        if(!ni.start["dateTime"])
+          datetime = ni.start.date;
         console.log(JSON.stringify(ni));
         if(ni["start"]){
           var dd = Date.parse(datetime);
@@ -90,7 +90,7 @@ https://www.googleapis.com/calendar/v3/calendars/NnFxdmxjbnRidnBvNDY4ZTRxN3RkZG5
         var item = items[i];
         if(item.lllabel){
           console.log("LABEL");
-          document.getElementById('calendar-body').innerHTML += "<br><h2>"+item.lllabel+"</h2><br><br>";
+          document.getElementById('calendar-body').innerHTML += "<br><h3 style='color:grey;'>"+item.lllabel+"</h3>";
           continue;
         }
         if(!item["start"]) continue;
