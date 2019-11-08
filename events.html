@@ -65,7 +65,7 @@ https://www.googleapis.com/calendar/v3/calendars/NnFxdmxjbnRidnBvNDY4ZTRxN3RkZG5
         var datetime = item.start.dateTime;
         if(!item.start["dateTime"])
           datetime = item.start.date;
-
+        console.log(JSON.stringify(ni));
         if(ni["start"]){
           var dd = Date.parse(datetime);
           console.log(dd);
