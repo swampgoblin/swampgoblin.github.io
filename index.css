@@ -6,8 +6,8 @@
  }
  body{
      background: url("images/dc-bg.png");
-     background-repeat: no-repeat;
-     background-size: cover;
+     background-repeat: repeat;
+     background-size: 100%;
  }
  a{
      color:white;
