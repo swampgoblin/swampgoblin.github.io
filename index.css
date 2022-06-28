@@ -41,6 +41,8 @@ body {
     margin-right:auto;
     color:white;
     text-align: center;
+    align-items: center;
+    align-content: center;
     font-family:"2Credits",Arial,sans-serif;
     padding:0;
     margin-top:0;
