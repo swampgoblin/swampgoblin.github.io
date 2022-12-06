@@ -9,6 +9,13 @@
   integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
   crossorigin="anonymous"></script>
   <script src="vibrate.js"></script>
+  <script>
+    $(function(){
+      $(".friend-links").find("img").each(function(index, elem){
+        $(elem).addClass("wobble"+(index%6));
+      });
+    });
+  </script>
   <title>SVVAMPGOBLIN</title>
 </head>
 <body>
@@ -18,31 +25,53 @@
   <div id="text-body">
     ABOUT
     <br><br>
-    SWAMPGOBLIN IS A COMMUNITY OF INDIE GAME DEVELOPERS IN THE GREATER DC METRO AREA
-    <br><br><a href="https://discord.gg/UWvzAeh">DISCORD</a>
+    A COMMUNITY OF INDIE GAME DEVELOPERS IN THE GREATER DC METRO AREA
+    <br><br><a href="https://discord.gg/UWvzAeh">Discord Link</a>
     <br><br><br><br>
-    GAMES SHOWN AT SWAMPGOBLIN EVENTS:
-    <br><br><a href="https://store.steampowered.com/app/1111150/Fault__Fragment">
-    <img src="images/game-labels/faultandfragment.png" width=100%></a>
-    <br><br><a href="https://natelargo.itch.io/crescendo">
-    <img src="images/game-labels/crescendo.png" width=100%></a>
-    <br><br><a href="https://store.steampowered.com/app/914420/Shadow_Fencer_Theatre/">
-    <img src="images/game-labels/shadowfencertheatre.png" width=100%></a>
-    <br><br><a href="https://store.steampowered.com/app/608670/Miracle_Mia/">
-    <img src="images/game-labels/miraclemia.png" width=100%></a>
-    <br><br><a href="https://www.artstation.com/artwork/BmDny8">
-    <img src="images/game-labels/hookbound.png" width=100%></a>
-    <br><br><a href="https://dpandaheart.itch.io/shippingout">
-    <img src="images/game-labels/shippingout.png" width=100%></a>
-    <br><br><a href="https://store.steampowered.com/app/1022820/STEELPAW/">
-    <img src="images/game-labels/steelpaw.png" width=100%></a>
-    <br><br><a href="https://j-a-i-l.itch.io/fff">
-    <img src="images/game-labels/flatformfighter.png" width=100%></a>
-    <br><br><a href="https://store.steampowered.com/app/355420/FLAMBERGE/">
-    <img src="images/game-labels/flamberge.png" width=100%></a>
-    <br><br><a href="https://hydezeke.itch.io/friendgun">
-    <img src="images/game-labels/friendgun.png" width=100%></a>
-    <br><br><br>
+    Games from our friends!
+
+    
+    <br><br>
   </div>
+  <div class="friend-links" style="line-height:1;columns:3;">
+    <a href="https://store.steampowered.com/app/1111150/Fault__Fragment">
+    <img src="images/game-labels/faultandfragment.png" width=100%></a>
+    <a href="https://vivianmochi.itch.io/crescendo">
+    <img src="images/game-labels/crescendo.png" width=100%></a>
+    <a href="https://vivianmochi.itch.io/rising-tide">
+    <img src="images/game-labels/risingtide.png" width=100%></a>
+    <a href="https://vivianmochi.itch.io/outer-belt-industries">
+      <img src="images/game-labels/outerbelt.png" width=100%></a>
+    <a href="https://store.steampowered.com/app/914420/Shadow_Fencer_Theatre/">
+    <img src="images/game-labels/shadowfencertheatre.png" width=100%></a>
+
+    <a href="https://skyboygames.itch.io/fire-and-rescue">
+      <img src="images/game-labels/fireandrescue.png" width=100%></a>
+
+    <a href="https://store.steampowered.com/app/608670/Miracle_Mia/">
+    <img src="images/game-labels/miraclemia.png" width=100%></a>
+    <a href="https://dboose.itch.io/scarlet-of-the-city-of-devils">
+      <img src="images/game-labels/scarlet.png" width=100%></a>
+
+      
+    <a href="https://www.youtube.com/watch?v=A3T_8mHvs-I">
+    <img src="images/game-labels/hookbound.png" width=100%></a>
+
+    <a href="https://dpandaheart.itch.io/shippingout">
+    <img src="images/game-labels/shippingout.png" width=100%></a>
+    <a href="https://store.steampowered.com/app/1022820/STEELPAW/">
+    <img src="images/game-labels/steelpaw.png" width=100%></a>
+    <a href="https://j-a-i-l.itch.io/fff">
+    <img src="images/game-labels/flatformfighter.png" width=100%></a>
+    <a href="https://store.steampowered.com/app/355420/FLAMBERGE/">
+    <img src="images/game-labels/flamberge.png" width=100%></a>
+    <a href="https://hydezeke.itch.io/friendgun">
+    <img src="images/game-labels/friendgun.png" width=100%></a>
+    <a href="https://hydezeke.itch.io/lcd">
+    <img src="images/game-labels/lcd.png" width=100%></a>
+    <a href="https://hydezeke.itch.io/hedgerow">
+    <img src="images/game-labels/hedgerow.png" width=100%></a>
+    </div>
+    <br><br><br><br>
 </body>
 </html>

@@ -11,8 +11,18 @@
  }
  a{
      color:white;
+     text-shadow: 2px 2px 0px red;
      text-decoration: none;
  }
+ a:hover {
+    text-shadow: 2px 2px 0px green;
+ }
+#special-links a {
+    text-shadow:none;
+}
+#special-links a:hover {
+    color:red;
+}
  /*html, body, #page {
     height:100%;
     width:100%;
@@ -54,6 +64,21 @@ h3{
     color:white;
     margin-bottom:0;
 }
+.friend-links {
+    width: 50%;
+    text-align:center;
+    margin-left:25%;
+}
+.friend-links img {
+    margin-top:15px;
+    border-radius:3px;
+    box-shadow: 0px 0px 15px #fff3;
+    filter: saturate(0.1) contrast(1.2);
+}
+.friend-links img:hover {
+    filter: saturate(1);
+    box-shadow: 0px 0px 15px #fff8;
+}
 h4{
     margin:0 0;
     padding:0;
@@ -61,6 +86,58 @@ h4{
     font-family:"2Credits",Arial,sans-serif;
     size:17;
     color:white;
+}
+
+@keyframes wobbly {
+    0%, 100% {
+      transform: translate3d(2px, 2px, 0);
+    }
+    
+    25% {
+      transform: translate3d(-2px, 2px, 0);
+    }
+  
+    50% {
+      transform: translate3d(-2px, -2px, 0);
+    }
+  
+    75% {
+      transform: translate3d(2px, -2px, 0);
+    }
+  }
+
+.wobble1 {
+    animation: wobbly 7.82s linear both;
+    animation-iteration-count: infinite;
+    transform: translate3d(0, 0, 0);
+}
+.wobble2 {
+    animation: wobbly 7.82s linear both;
+    animation-direction:reverse;
+    animation-iteration-count: infinite;
+    transform: translate3d(0, 0, 0);
+}
+.wobble5 {
+    animation: wobbly 12.32s linear both;
+    animation-direction:reverse;
+    animation-iteration-count: infinite;
+    transform: translate3d(0, 0, 0);
+}
+.wobble4 {
+    animation: wobbly 12.32s linear both;
+    animation-iteration-count: infinite;
+    transform: translate3d(0, 0, 0);
+}
+.wobble3 {
+    animation: wobbly 9.32s linear both;
+    animation-direction:reverse;
+    animation-iteration-count: infinite;
+    transform: translate3d(0, 0, 0);
+}
+.wobble0 {
+    animation: wobbly 9.32s linear both;
+    animation-iteration-count: infinite;
+    transform: translate3d(0, 0, 0);
 }
 #text-body{
     width:20%;
