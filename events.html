@@ -127,10 +127,10 @@ https://www.googleapis.com/calendar/v3/calendars/NnFxdmxjbnRidnBvNDY4ZTRxN3RkZG5
         var ds = formatDate(dd);
         ds = "<h4>"+ds+"</h4>";
         
-        if(item.description && item.description.length > 0){
-          let desc = "<span style='font-size:0.8em;>" + item.description + "</span>";
-          ds += desc;
-        }
+        // if(item.description && item.description.length > 0){
+        //   let desc = "<span style='font-size:0.8em;>" + item.description + "</span>";
+        //   ds += desc+"<br>";
+        // }
         document.getElementById('calendar-body').innerHTML += "<br>"+summ+ds+"<br>"+location+"<br><br>";
       }
     }
