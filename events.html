@@ -96,6 +96,7 @@ https://www.googleapis.com/calendar/v3/calendars/NnFxdmxjbnRidnBvNDY4ZTRxN3RkZG5
       //console.log(items.length);
       for(var i = 0; i < items.length; i++){
         var item = items[i];
+        console.log(item);
         if(item.lllabel){
           console.log("LABEL");
           document.getElementById('calendar-body').innerHTML += "<br><h3 style='color:grey;'>"+item.lllabel+"</h3>";
@@ -125,6 +126,11 @@ https://www.googleapis.com/calendar/v3/calendars/NnFxdmxjbnRidnBvNDY4ZTRxN3RkZG5
         dd.setTime(d);
         var ds = formatDate(dd);
         ds = "<h4>"+ds+"</h4>";
+        
+        // if(item.description && item.description.length > 0){
+        //   let desc = "<span style='font-size:0.8em;>" + item.description + "</span>";
+        //   ds += desc+"<br>";
+        // }
         document.getElementById('calendar-body').innerHTML += "<br>"+summ+ds+"<br>"+location+"<br><br>";
       }
     }
