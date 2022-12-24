@@ -17,12 +17,6 @@
  a:hover {
     text-shadow: 2px 2px 0px green;
  }
- .kofi_button {
-    opacity:1;
- }
- .kofi_button:hover {
-    filter: invert(100%) sepia(50%);
- }
 #special-links a {
     text-shadow:none;
 }
