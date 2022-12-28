@@ -17,12 +17,41 @@
  a:hover {
     text-shadow: 2px 2px 0px green;
  }
+ #special-links img {
+    width:0.7em;
+    opacity:0.8;
+    filter: saturate(0);
+ }
 #special-links a {
     text-shadow:none;
 }
 #special-links a:hover {
     color:red;
 }
+
+.ml-form-embedBodyHorizontal {
+	margin-top:3px !important;
+	padding-top:3px !important;
+}
+
+.ml-validate-required {
+	margin-bottom:3px !important;
+	padding-bottom:3px !important;
+}
+
+.ml-form-embedWrapper {
+	filter: brightness(0.9);
+	box-shadow: 2px 2px 0px red;
+	
+}
+.ml-form-embedWrapper p {
+	font-family:"2Credits",Arial,sans-serif !important;
+}
+.ml-form-embedWrapper strong {
+	font-family:"2Credits",Arial,sans-serif !important;
+	font-size: 14px !important;
+}
+
  /*html, body, #page {
     height:100%;
     width:100%;
@@ -33,6 +62,28 @@
     font-family:"2Credits";
     src: url("fonts/2Credits.ttf");
 }
+@font-face {
+    font-family:"YesevaOne";
+    src: url("fonts/YesevaOne.ttf");
+}
+@font-face {
+    font-family:"Roboto-Bold";
+    src: url("fonts/Roboto-Bold.ttf");
+}
+@font-face {
+    font-family:"Roboto-BoldItalic";
+    src: url("fonts/Roboto-BoldItalic.ttf");
+}
+
+.yes{
+	font-family:"YesevaOne",Arial,sans-serif !important;
+}
+.rob{
+	font-family:"Roboto-Bold",Arial,sans-serif !important;
+}
+.robi{
+	font-family:"Roboto-BoldItalic",Arial,sans-serif !important;
+}
 body {
     background-color: black;
     padding:0px;
@@ -40,13 +91,30 @@ body {
 #special-links{
     margin-left:auto;
     margin-right:auto;
-    color:white;
+    color:#fffb;
     text-align: center;
     font-family:"2Credits",Arial,sans-serif;
+    font-size:1.2em;
     padding:0;
     margin-top:0;
+    
 }
-#text-body,#calendar-body{
+#special-links a {
+    color: #fff;
+   // text-decoration: underline overline;
+   background-color:#111;
+   padding:2px 12px 2px 12px;
+   border: 2px solid #fff8;
+}
+/* a.c3 {color: #f64044}
+.c1 {color:#f9971c}
+.c6 {color: #f8c854}
+.c0 {color:#84c76f}
+.c4 {color: #43ab8a}
+.c5 {color:#84cfca}
+.c2 {color: #51b2dc}
+.c7 {color:#9d63d3} */
+#text-body,#calendar-body,.tagline{
     margin-left:auto;
     margin-right:auto;
     color:white;
@@ -56,6 +124,9 @@ body {
     font-family:"2Credits",Arial,sans-serif;
     padding:0;
     margin-top:0;
+}
+.tagline {
+    color:#fffd;
 }
 h3{
     text-align:left;
