@@ -39,7 +39,10 @@
           meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
           document.getElementsByTagName('head')[0].appendChild(meta);
         }
+        let clicked = false;
         $("#goblinzine").on("click", function(event){
+          if(clicked) return;
+          clicked = true;
           $("#clickbelow").hide();
           $("#goblinzine").css("cursor", "default");
           createUnityInstance(document.querySelector("#unity-canvas"), {
