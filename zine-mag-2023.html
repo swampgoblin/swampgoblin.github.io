@@ -24,19 +24,36 @@
   </style>
 </head>
 <body>
-  <div id="center-logo-container-small">
-    <a href="index.html"><img src="images/swampgoblin_logo_00.png" width=100%></a>
+  <div id="center-logo-container-small" style="padding-top:2px; margin-top:2px;">
+    <a href="index.html"><img src="images/swampgoblin_logo_00.png" width=50%></a>
   </div>
-  <div id="text-body">
-    Thanks for reading the zine!
-	
-	The digitized zine is available here: 
+  <div id="text-body" style="width:70%;">
+	Requires desktop/webGL device.
 	<br><br>
-	<!--<div class="zine_link">
-	<a href="https://swampgoblin-mdva.itch.io/goblin-zine-2023/download/C2imBQPkGz14lNQE9wEmYN6Y3zv5jPlh4EONfXd8">Goblin Zine on Itch.io</a>
-	</div>-->
-	<div class="zine_link">
-	<a href="https://hydezeke.itch.io/goblin-war-84?password=goblin">Goblin Zine on Itch.io</a>
+	<div>
+		<canvas id="unity-canvas" width=960 height=720 style="width:  720px; height: 540px; background: #231F20; box-shadow: 1px 1px 30px #0005;"></canvas>
+    <script src="Build/A01.loader.js"></script>
+    <script>
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+      }
+
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/A01.data.gz",
+        frameworkUrl: "Build/A01.framework.js.gz",
+        codeUrl: "Build/A01.wasm.gz",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "goblin war",
+        productVersion: "0.1",
+        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+      });
+    </script>
 	</div>
   </div>
 </body>
