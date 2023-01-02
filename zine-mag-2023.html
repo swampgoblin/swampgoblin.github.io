@@ -25,31 +25,38 @@
 </head>
 <body>
   
-  <div id="text-body" style="width:70%;">
-	
-	<div style="margin-top:100px;">
+  <div id="text-body" style="width:70%;margin-top:50px;"">
+	<span >&nbsp;</span><span id="clickbelow">Click below.</span>
+	<div style="margin-top:50px; cursor:pointer;" id="goblinzine">
 		<canvas id="unity-canvas" width=960 height=720 style="width:  720px; height: 540px; background: #111f; box-shadow: 1px 1px 30px #0005;"></canvas>
     <script src="Build/A01.loader.js"></script>
     <script>
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Mobile device style: fill the whole browser client area with the game canvas:
-        var meta = document.createElement('meta');
-        meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
-      }
-
-      createUnityInstance(document.querySelector("#unity-canvas"), {
-        dataUrl: "Build/A01.data",
-        frameworkUrl: "Build/A01.framework.js",
-        codeUrl: "Build/A01.wasm",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "goblin war",
-        productVersion: "0.1",
-        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
-        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+      $(function(){
+        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+          // Mobile device style: fill the whole browser client area with the game canvas:
+          var meta = document.createElement('meta');
+          meta.name = 'viewport';
+          meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+          document.getElementsByTagName('head')[0].appendChild(meta);
+        }
+        $("#goblinzine").on("click", function(event){
+          $("#clickbelow").hide();
+          $("#goblinzine").css("cursor", "default");
+          createUnityInstance(document.querySelector("#unity-canvas"), {
+            dataUrl: "Build/A01.data",
+            frameworkUrl: "Build/A01.framework.js",
+            codeUrl: "Build/A01.wasm",
+            streamingAssetsUrl: "StreamingAssets",
+            companyName: "DefaultCompany",
+            productName: "goblin war",
+            productVersion: "0.1",
+            // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+            // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+          });
+        });
+        
       });
+      
     </script>
 	</div>
 	<br>
