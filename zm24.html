@@ -1,33 +1,95 @@
 <html>
+
 <head>
     <link rel="icon" href="images/swampgoblin_logo_00.png">
-  <link rel="stylesheet" href="index.css">
-  <meta charset="utf-8">
-  <script src="vibrate.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  <script
-  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
-  crossorigin="anonymous"></script>
-  <title>SVVAMPGOBLIN</title>
-  <style>
-	.zine_link {
-		text-align:center; 
-		background-color:red;
-		font-size:2em;
-		box-shadow:4px 4px 0px yellow;
-	}
-	.zine_link:hover {
-	
-		background-color:blue;
-	}
-  </style>
+    <link rel="stylesheet" href="index.css">
+    <meta charset="utf-8">
+    <script src="vibrate.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script>
+        $(function() {
+            let date = new Date();
+            
+            let desires = new Date('2024-02-18T05:00:00+00:00');
+            if (date > desires) {
+                show_game();
+            } else {
+                $(".secret-game").hide();
+            }
+        });
+        function show_game(){
+          $(".secret-game").show();
+          $(".secret-message").hide();
+        }
+    </script>
+    <title>SVVAMPGOBLIN</title>
+    <style>
+        .zine_link {
+            text-align: center;
+            background-color: red;
+            font-size: 2em;
+            box-shadow: 4px 4px 0px yellow;
+        }
+        
+        .zine_link:hover {
+            background-color: blue;
+        }
+    </style>
 </head>
+
 <body>
+
+    <div id="text-body" style="width:70%;margin-top:50px;">
+
+    <div class="secret-game " style="display:none; ">
+
+	<span >&nbsp;</span><span id="clickbelow ">Click below.</span>
+
+	<div style="margin-top:50px; cursor:pointer; " id="goblinzine">
+		<canvas id="unity-canvas" width=1080 height=810 style="width: 1080px; height: 810px; background: #111f; box-shadow: 1px 1px 30px #0005; "></canvas>
+    <script src="ZM24Assets/Build/ZM24Assets.loader.js "></script>
+    <script>
+      $(function(){
+        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+          // Mobile device style: fill the whole browser client area with the game canvas:
+          var meta = document.createElement('meta');
+          meta.name = 'viewport';
+          meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+          document.getElementsByTagName('head')[0].appendChild(meta);
+        }
+        let clicked = false;
+        $("#goblinzine").on("click ", function(event){
+          if(clicked) return;
+          clicked = true;
+          console.log("CLICKED? ");
+          $("#clickbelow ").hide();
+          $("#goblinzine").css("cursor ", "default ");
+          createUnityInstance(document.querySelector("#unity-canvas"), {
+            dataUrl: "ZM24Assets/Build/ZM24Assets.data.gz ",
+            frameworkUrl: "ZM24Assets/Build/ZM24Assets.framework.js.gz ",
+            codeUrl: "ZM24Assets/Build/ZM24Assets.wasm.gz ",
+            streamingAssetsUrl: "ZM24Assets/StreamingAssets ",
+            companyName: "DefaultCompany ",
+            productName: "sword-appraiser ",
+            productVersion: "0.1 ",
+            // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+            // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+          });
+        });
+        
+      });
+      
+    </script>
+	</div>
+
+	<br>
+	<span style="opacity:0.9 ">Requires desktop/webGL device. <a href="/ ">Return to SWAMPGOBLIN website --></a></span>
+  </div>
   
-  <div id="text-body" style="width:70%;margin-top:50px;"">
-	<span style="opacity:0.9">WELCOME TO THE SECRET PAGE . . . RETURN AT 00:00 FEBRUARY 18 <a href="/">Return to SWAMPGOBLIN website --></a></span>
+  <div class="secret-message ">
+    <span style="opacity:0.9 ">WELCOME TO THE SECRET PAGE . . . RETURN AT 00:00 FEBRUARY 18 EST<br><a href="/ ">Return to SWAMPGOBLIN website --></a></span>
   </div>
-  </div>
+</div>
 </body>
 </html>
